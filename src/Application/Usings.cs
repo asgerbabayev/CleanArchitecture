@@ -1,0 +1,12 @@
+﻿global using CleanArchitecture.Application.Common.Interfaces;
+global using CleanArchitecture.Domain.Entities;
+global using FluentValidation;
+global using MediatR;
+global using Microsoft.EntityFrameworkCore;
+global using System.Reflection;
+global using AutoMapper;
+global using AutoMapper.QueryableExtensions;
+global using CleanArchitecture.Application.Countries.Commands.CreateCountry;
+global using CleanArchitecture.Application.Countries.Commands.UpdateCountry;
+global using FluentValidation.Results;
+global using Microsoft.Extensions.Logging;

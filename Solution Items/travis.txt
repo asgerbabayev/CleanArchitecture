@@ -1,0 +1,49 @@
+language: csharp
+mono: none
+dotnet: net7.0
+solution: CleanArchitecture.sln
+
+branches:
+  only:
+    - master 
+    - main
+
+install:
+  - cd src
+  - dotnet restore
+
+before_script:
+  - chmod -R a+x scripts 
+
+script: 
+  - dotnet publish --configuration Release --runtime win-x64      /p:PublishSingleFile=false  --output win-x64
+  - dotnet publish --configuration Release --runtime win-x86      /p:PublishSingleFile=false  --output win-x86
+  - dotnet publish --configuration Release --runtime linux-x64    /p:PublishSingleFile=false  --output linux-x64
+  - dotnet publish --configuration Release --runtime osx-x64      /p:PublishSingleFile=false  --output osx-x64
+
+before_deploy:
+  - zip -r9 win-x64.zip    win-x64
+  - zip -r9 win-x86.zip    win-x86
+  - zip -r9 linux-x64.zip  linux-x64
+  - zip -r9 osx-x64.zip    osx-x64
+
+
+deploy:
+  provider: releases
+  file:
+    - win-x64.zip
+    - win-x86.zip
+    - linux-x64.zip
+    - osx-x64.zip
+  skip_cleanup: true
+  on:
+    tags: true
+
+notification:
+  email:
+    on_success: always
+    on_failure: always
+
+
+
+    .travis.yml

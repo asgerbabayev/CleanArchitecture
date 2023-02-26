@@ -1,0 +1,12 @@
+﻿global using CleanArchitecture.Infrastructure.Identity;
+global using CleanArchitecture.Infrastructure.Persistence;
+global using CleanArchitecture.Infrastructure.Persistence.Interceptors;
+global using Duende.IdentityServer.EntityFramework.Options;
+global using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Options;
